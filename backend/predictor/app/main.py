@@ -81,13 +81,13 @@ async def predict(file: UploadFile = File(...), background_tasks: BackgroundTask
     image_bytes = contents
 
     img_task = fetch_image_vector(image_bytes, file.filename, file.content_type)
-    txt_task = fetch_text_vector(image_bytes, file.filename, file.content_type)
+    #txt_task = fetch_text_vector(image_bytes, file.filename, file.content_type)
 
-    image_vec, text_vec = await asyncio.gather(img_task, txt_task)
+    image_vec = await asyncio.gather(img_task)
 
     logger.info(f"image_vec={len(image_vec)}")
-    logger.info(f"text_vec={len(text_vec)}")
-    result = app.state.classifier.predict(image_vec, text_vec)
+    # logger.info(f"text_vec={len(text_vec)}")
+    result = app.state.classifier.predict(image_vec)
 
     file_root, file_ext = os.path.splitext(file.filename)
     hash_id = get_hash(file.filename)

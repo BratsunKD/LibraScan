@@ -4,11 +4,12 @@ from transformers import BertTokenizer, BertModel
 import torch
 from PIL import Image
 import io
-from train_model.config import TEXT_ENCODER_WEIGHTS_PATH, BATCH_SIZE, DEVICE
 
+BATCH_SIZE = 8
+DEVICE = 'cuda' if torch.cuda.is_available() else 'cpu'
 
 class TextEncoder:
-    def __init__(self, weights_path):
+    def __init__(self):
         self.tokenizer = BertTokenizer.from_pretrained('bert-base-multilingual-cased')
         self.model = BertModel.from_pretrained('bert-base-multilingual-cased')
 

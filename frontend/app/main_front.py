@@ -2,8 +2,7 @@ import os
 import gradio as gr
 import requests
 
-# Список имён классов
-classes = ['cat', 'dog', 'car', 'plane']
+classes = ["обложка", "титульный лиcт", "с аннотациями", "страница с выпускными данными"]
 
 predict_url = os.getenv("PREDICT_URL", "http://localhost:8000/predict")
 save_answer_url = os.getenv("SAVE_ANSWER_URL", "http://localhost:8000/save_answer")
@@ -28,7 +27,7 @@ def classify_image(image):
                 predicted_label = classes[predicted_index]
                 selected_value = predicted_label
             else:
-                predicted_label = "Неизвестно"
+                predicted_label = "Не определено"
                 selected_value = None
 
             return (

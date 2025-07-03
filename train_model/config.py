@@ -35,4 +35,4 @@ RESULTS_SAVE_PATH = 'results/'
 # Размер скрытого слоя FNN (перенёс сюда по твоей просьбе)
 FNN_HIDDEN_DIM = 1024
 
-BEST_FNN_WEIGHTS_PATH = "saved_models/best_model_text_True_image_True.pth"
+BEST_FNN_WEIGHTS_PATH = "saved_models/best_model_text_False_image_True.pth"

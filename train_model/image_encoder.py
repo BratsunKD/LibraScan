@@ -3,7 +3,6 @@ import torch
 from torchvision.models import resnet50
 from torchvision import transforms
 from PIL import Image
-# from config import IMAGE_ENCODER_WEIGHTS_PATH, BATCH_SIZE, DEVICE
 
 # Устройство
 DEVICE = 'cuda' if torch.cuda.is_available() else 'cpu'
