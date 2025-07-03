@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "text-encoder"
+version = "0.1.0"
+description = "Text encoder service with FastAPI"
+authors = ["Your Name <your.email@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.95.2"
+uvicorn = "^0.22.0"
+numpy = "^1.24.3"
+pillow = "^9.5.0"
+pydantic = "^1.10.7"
+aiohttp = "^3.8.4"
+python-multipart = "^0.0.6"
+transformers = "^4.53.0"
+
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.3.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

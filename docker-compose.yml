@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+#  gradio-frontend:
+#    build:
+#      context: ./frontend
+#      dockerfile: Dockerfile
+#    ports:
+#      - "7860:7860"
+#    environment:
+#      - PREDICT_URL=http://backend:8000/predict
+#      - SAVE_ANSWER_URL=http://backend:8000/save_answer
+#
+#  backend:
+#    build: ./backend
+#    ports:
+#      - "8000:8000"
+#    depends_on:
+#      - db
+#    environment:
+#      - DB_HOST=db
+#      - DB_PORT=5432
+#      - DB_NAME=image_db
+#      - DB_USER=image_collector
+#      - DB_PASSWORD=password
+
+  db:
+    image: postgres:15
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: image_collector
+      POSTGRES_DB: image_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init:/docker-entrypoint-initdb.d
+
+volumes:
+  postgres_data:
